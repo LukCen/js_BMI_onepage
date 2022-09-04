@@ -1,0 +1,58 @@
+$col-primary: rgb(0, 102, 255);
+$col-wrapper: black;
+$bg-img: url('../assets/bg-img.jpg');
+* {
+    margin: 0;
+}
+@mixin flexCenterColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cont-body {
+    height: 100vh;
+    width: 100vw;
+    @include flexCenterColumn;
+    background-color: rgba($col-wrapper, .8);
+    color: white;
+    
+}
+.body-wrapper {
+    background: $bg-img;
+}
+form {
+    @include flexCenterColumn;
+    height: 100vh;
+}
+
+label, input {
+    margin-bottom: 10px;
+}
+
+.btn-submit {
+    position: relative;
+    padding: 5px 15px 5px 15px;
+    background-color: $col-primary;
+    color: white;
+    border: 1px solid $col-primary;
+    border-radius: 50px;
+    bottom: -5%;
+
+    &:hover {
+        border: 2px solid lightblue;
+    }
+}
+
+.result-window {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    bottom: -10%;
+    width: 100vh;
+    height: 10%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba($color: #000000, $alpha: .8);
+    
+}
