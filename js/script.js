@@ -1,50 +1,44 @@
 'use strict';
 
-const userWeight = parseInt(document.getElementById('weight').value);
-const userHeight = parseInt(document.getElementById('height').value);
-
+    
+ 
 const btnSubmit = document.getElementById('btn-submit');
-
 const resultField = document.getElementById('result-window');
 
-resultField.innerText = 'Twoje BMI wynosi: '
-
-
-
 btnSubmit.addEventListener('click', () => {
-    
-    // resultField.innerText = '';
 
-    // const bmiWeight = userWeight;
-    // const bmiHeight = userHeight;
-    const bmiResult = userWeight / (Math.pow(userHeight), 2 / 100);
+    let userWeight = document.getElementById('weight').value;
+    let userHeight = document.getElementById('height').value;
 
+    const bmiResult = userWeight / (userHeight*userHeight / 100);
 
-    let finalResult = bmiResult * 100;
+    const finalResult = " " + parseFloat(bmiResult * 100).toFixed(2);
 
-    let floatResult = parseFloat(finalResult);
+   
 
-    console.log(floatResult);
+    resultField.innerText = 'Twoje BMI wynosi: ' 
 
-    
-    // if(floatResult < 16){
-    //     resultField.textContent += floatResult + '. ' + 'Jesteś wygłodzony!'
+    if(finalResult < 16){
+        resultField.innerText += finalResult + '. ' + ' Jesteś wygłodzony!'
 
-    // } else if(floatResult > 16 && floatResult < 17) {
-    //     resultField.textContent += floatResult + '. ' + 'Jesteś wychudzony!'
+    } else if(finalResult > 16 && finalResult < 17) {
+        resultField.innerText += finalResult + '. ' + ' Jesteś wychudzony!'
 
-    // } else if(floatResult > 17 && floatResult < 18.50) {
-    //     resultField.textContent += floatResult + '. ' + 'Cierpisz na niedowagę!'
+    } else if(finalResult > 17 && finalResult < 18.50) {
+        resultField.innerText += finalResult + '. ' + ' Cierpisz na niedowagę!'
 
-    // } else if(floatResult > 18.50 && floatResult < 25) {
-    //     resultField.textContent += floatResult + '. ' + 'Jesteś w dobrym miejscu, tak trzymać! To prawidłowa wartość BMI!'
+    } else if(finalResult > 18.50 && finalResult < 25) {
+        resultField.innerText += finalResult + '. ' + ' Jesteś w dobrym miejscu, tak trzymać! To prawidłowa wartość BMI!'
 
-    // } else if (floatResult > 25 && floatResult < 29.99) {
-    //     resultField.textContent += floatResult + '. ' + 'Cierpisz na nadwagę!'
+    } else if (finalResult > 25 && finalResult < 29.99) {
+        resultField.innerText += finalResult + '. ' + ' Cierpisz na nadwagę!'
 
-    // } else {
-    //     resultField.textContent += floatResult + '. ' + 'Cierpisz na otyłość!'
-    // }
+    } else {
+        resultField.innerText += finalResult + '. ' + ' Cierpisz na otyłość!'
+    }
 
+    userHeight = 0;
+    userWeight = 0;
 
 })
+
